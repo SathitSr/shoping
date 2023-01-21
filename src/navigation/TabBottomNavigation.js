@@ -16,7 +16,6 @@ export default function TabBottomNavigation() {
         headerShown: false,
         tabBarActiveTintColor: "#4B4B4B",
         tabBarIcon: ({ focused }) => {
-          console.log("check focused : ", focused);
           let iconName = "";
           switch (route.name) {
             case "Home": {

@@ -1,11 +1,37 @@
 import * as React from "react";
-import { Button, View } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { View, FlatList, Pressable, Text, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import ContentHeader from "../component/ContentHeader";
+import ContentSection from "../component/ContentSection";
+import Category from "../component/Category";
 
-const Home = ({ navigation }) => {
+const Home = () => {
+  const navigation = useNavigation();
+  const insets = useSafeAreaInsets();
+
+  const ContentHeaderFlatList = () => {
+    return (
+      <>
+        <Pressable onPress={() => console.log("search")}>
+          <ContentHeader />
+        </Pressable>
+        <Category />
+      </>
+    );
+  };
+
+  const ListFooterComponent = () => {
+    return <ContentSection />;
+  };
+
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Button title="Go to Home" onPress={() => navigation.navigate("Cart")} />
+    <View style={{ flex: 1, paddingTop: insets.top }}>
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        ListHeaderComponent={ContentHeaderFlatList}
+        ListFooterComponent={ListFooterComponent}
+      />
     </View>
   );
 };

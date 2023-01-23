@@ -1,13 +1,11 @@
 import * as React from "react";
 import { View, FlatList, Pressable, Text, Image } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import ContentHeader from "../component/ContentHeader";
 import ContentSection from "../component/ContentSection";
 import Category from "../component/Category";
 
 const Home = () => {
-  const navigation = useNavigation();
   const insets = useSafeAreaInsets();
 
   const ContentHeaderFlatList = () => {

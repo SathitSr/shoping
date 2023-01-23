@@ -1,15 +1,25 @@
-import { Text, View, FlatList, Image } from "react-native";
+import { Text, View, FlatList, Image, TouchableOpacity } from "react-native";
 import productsMockup from "../../../components/mockup/productsList.json";
 import { Rating } from "react-native-ratings";
+import { useNavigation } from "@react-navigation/native";
 
 const ContentSection = () => {
+  const navigation = useNavigation();
   return (
     <View style={{ padding: 10 }}>
       <FlatList
         data={productsMockup}
         numColumns={2}
         renderItem={({ item }) => (
-          <View
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("ModalScreen", {
+                screen: "ProductDetail",
+                params: {
+                  product: item,
+                },
+              })
+            }
             style={{
               height: 300,
               flex: 1,
@@ -100,7 +110,7 @@ const ContentSection = () => {
                 </Text>
               </View>
             </View>
-          </View>
+          </TouchableOpacity>
         )}
         keyExtractor={(item) => item.id}
       />

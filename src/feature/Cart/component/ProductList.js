@@ -46,8 +46,11 @@ const ProductList = () => {
             </View>
             <View style={{ flex: 4, paddingTop: 15, paddingBottom: 15 }}>
               <Text numberOfLines={1}>{item.products[0].product_name}</Text>
-              <Text numberOfLines={1} style={{ marginTop: 10 }}>
-                {item.products[0].price_after_discount}
+              <Text
+                numberOfLines={1}
+                style={{ marginTop: 10, color: "#979BFA" }}
+              >
+                + ฿{item.products[0].price_after_discount}
               </Text>
             </View>
           </View>

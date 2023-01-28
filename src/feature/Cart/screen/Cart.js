@@ -5,7 +5,7 @@ import { AntDesign } from "@expo/vector-icons";
 import UserProfile from "../component/UserProfile";
 import ProductList from "../component/ProductList";
 
-const Cart = ({ navigation }) => {
+const Cart = () => {
   const insets = useSafeAreaInsets();
 
   const ContentHeaderFlatList = () => {

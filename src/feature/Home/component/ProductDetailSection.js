@@ -21,7 +21,7 @@ const ProductDetailSection = (props) => {
           padding: 25,
         }}
       >
-        <View
+        <ScrollView
           style={{
             height: "100%",
           }}
@@ -83,7 +83,7 @@ const ProductDetailSection = (props) => {
           <View style={{ marginTop: 15 }}>
             <Text style={{ fontSize: 12, color: "#A0A0A0" }}>Read more</Text>
           </View>
-        </View>
+        </ScrollView>
       </View>
     </View>
   );

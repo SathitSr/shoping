@@ -31,6 +31,7 @@ const ProductDetail = ({ route }) => {
             alignItems: "center",
             borderWidth: 1,
             borderColor: "#ACACAC",
+            backgroundColor: "#ACACAC",
           }}
         >
           <Text style={{ color: "#777575" }}>เพิ่มสินค้าลงตะกล้า</Text>

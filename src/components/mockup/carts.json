@@ -2,7 +2,7 @@
     {
         "user_id": 2,
         "product_id": 13,
-        "products": "[{\"product_name\":\"ipad\",\"product_detail\":\"test\",\"price_after_discount\":25000,\"price_befor_discount\":\"25800\",\"rate\":5,\"sold\":2582,\"location\":\"กรุงเทพมหานคร\",\"image\":\"googlessssfds\",\"id\":13}]",
+        "products": "[{\"product_name\":\"ipad\",\"product_detail\":\"test\",\"price_after_discount\":25000,\"price_befor_discount\":\"25800\",\"rate\":5,\"sold\":2582,\"location\":\"กรุงเทพมหานคร\",\"image\":\"https://www.apple.com/newsroom/images/product/ipad/standard/apple_ipad-pro-spring21_hero_04202021_big.jpg.large.jpg\",\"id\":13}]",
         "id": 5
     },
     {

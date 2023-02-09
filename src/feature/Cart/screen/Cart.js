@@ -1,11 +1,42 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { View, FlatList, Text, TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import UserProfile from "../component/UserProfile";
 import ProductList from "../component/ProductList";
+import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 
 const Cart = () => {
+  const navigation = useNavigation();
+  const [data, setData] = useState([]);
+  const [allProductId, setAllProductId] = useState([]);
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener("focus", async () => {
+      getCart();
+    });
+
+    return unsubscribe;
+  }, [navigation]);
+
+  const getCart = () => {
+    axios
+      .get("http://localhost:3500/api/cart?user_id=1")
+      .then((request) => {
+        setData(request.data);
+
+        let prepareProductId = [];
+        request.data.map((el) => {
+          prepareProductId.push(el.product_id);
+        });
+        setAllProductId(prepareProductId);
+      })
+      .catch((e) => {
+        console.log("e : ", e);
+      });
+  };
+
   const insets = useSafeAreaInsets();
 
   const ContentHeaderFlatList = () => {
@@ -13,7 +44,20 @@ const Cart = () => {
   };
 
   const ListFooterComponent = () => {
-    return <ProductList />;
+    return <ProductList productList={data} />;
+  };
+
+  const checkOut = () => {
+    axios
+      .post("http://localhost:3500/api/checkout", {
+        product_id: allProductId,
+        address: "test",
+        user_id: 1,
+      })
+      .then((response) => {
+        getCart();
+      })
+      .catch((e) => console.log("e : ", e));
   };
 
   return (
@@ -39,9 +83,7 @@ const Cart = () => {
             borderRadius: 20,
             flexDirection: "row",
           }}
-          onPress={() => {
-            console.log("tetete");
-          }}
+          onPress={() => checkOut()}
         >
           <View style={{ flex: 1 }}>
             <Text style={{ color: "#fff", fontSize: 14 }}>Total</Text>

@@ -1,10 +1,23 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, FlatList } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import PromotionList from "../component/PromotionList";
+import axios from "axios";
 
 const Promotion = () => {
   const insets = useSafeAreaInsets();
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3500/api/promotion")
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, []);
 
   const ContentHeaderFlatList = () => {
     return (
@@ -22,7 +35,7 @@ const Promotion = () => {
   };
 
   const ListFooterComponent = () => {
-    return <PromotionList />;
+    return <PromotionList promotionData={data} />;
   };
 
   return (

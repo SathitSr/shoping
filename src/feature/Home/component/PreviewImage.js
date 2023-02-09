@@ -2,7 +2,6 @@ import { View, Image } from "react-native";
 const PreviewImage = (props) => {
   const { images } = props;
 
-  console.log("check image : ", images);
   return (
     <View style={{ height: 450 }}>
       <Image

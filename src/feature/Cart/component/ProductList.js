@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { FlatList, View, Text, Image } from "react-native";
-import cartsList from "../../../components/mockup/carts.json";
-const ProductList = () => {
+const ProductList = (props) => {
+  const { productList } = props;
   const [data, setData] = useState([]);
 
   useEffect(() => {
     let prepare = [];
-    cartsList.map((el) => {
+    productList.map((el) => {
       prepare.push({
         user_id: el.user_id,
         product_id: el.product_id,
-        products: JSON.parse(el.products),
+        products: el.products,
         id: el.id,
       });
     });

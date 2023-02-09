@@ -1,7 +1,7 @@
 import { View, FlatList, Image, Text } from "react-native";
-import promotions from "../../../components/mockup/promotionList";
 
-const PromotionList = () => {
+const PromotionList = (props) => {
+  const { promotionData } = props;
   return (
     <View
       style={{
@@ -12,7 +12,7 @@ const PromotionList = () => {
       }}
     >
       <FlatList
-        data={promotions}
+        data={promotionData}
         renderItem={({ item }) => (
           <View
             style={{

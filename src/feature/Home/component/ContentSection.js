@@ -1,14 +1,14 @@
 import { Text, View, FlatList, Image, TouchableOpacity } from "react-native";
-import productsMockup from "../../../components/mockup/productsList.json";
 import { Rating } from "react-native-ratings";
 import { useNavigation } from "@react-navigation/native";
 
-const ContentSection = () => {
+const ContentSection = (props) => {
   const navigation = useNavigation();
+  const { productData } = props;
   return (
     <View style={{ padding: 10 }}>
       <FlatList
-        data={productsMockup}
+        data={productData}
         numColumns={2}
         renderItem={({ item }) => (
           <TouchableOpacity

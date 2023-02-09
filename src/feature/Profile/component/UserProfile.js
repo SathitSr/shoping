@@ -25,8 +25,8 @@ const UserProfile = () => {
         />
       </View>
       <View style={{}}>
-        <Text style={{ fontSize: 18, color: "#171717" }}>Sathit Srisawat</Text>
-        <Text style={{ fontSize: 14, color: "#535353" }}>080145xxxx</Text>
+        <Text style={{ fontSize: 18, color: "#171717" }}>Isabella</Text>
+        <Text style={{ fontSize: 14, color: "#535353" }}>08012345xxxx</Text>
       </View>
     </View>
   );
